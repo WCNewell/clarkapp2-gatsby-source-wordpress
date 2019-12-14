@@ -9,19 +9,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
       resolve: `gatsby-source-wordpress`,
       options: {
-        /*
-         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
-         * Example : 'dev-gatbsyjswp.pantheonsite.io' or 'www.example-site.com'
-         */
         baseUrl: `clarknewell.tech`,
         protocol: `https`,
         hostingWPCOM: true,
@@ -35,6 +24,13 @@ module.exports = {
         verboseOutput: true,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -43,8 +39,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FFFFFF`,
+        theme_color: `#FFFFFF`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
