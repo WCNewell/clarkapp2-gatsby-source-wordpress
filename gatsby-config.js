@@ -24,10 +24,13 @@ module.exports = {
          */
         baseUrl: `clarknewell.tech`,
         protocol: `https`,
-        hostingWPCOM: false,
+        hostingWPCOM: true,
         useACF: false,
         auth: {
-
+          wpcom_app_clientSecret: process.env.WP_SECRET,
+          wpcom_app_clientId: process.env.WP_CLIENTID,
+          wpcom_user: process.env.WP_USERNAME,
+          wpcom_pass: process.env.WP_PASSWORD,
         },
         verboseOutput: true,
       },
