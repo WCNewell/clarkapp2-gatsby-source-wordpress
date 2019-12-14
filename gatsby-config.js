@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,6 +13,23 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        /*
+         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
+         * Example : 'dev-gatbsyjswp.pantheonsite.io' or 'www.example-site.com'
+         */
+        baseUrl: `clarknewell.tech`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: false,
+        auth: {
+
+        },
+        verboseOutput: true,
       },
     },
     `gatsby-transformer-sharp`,
