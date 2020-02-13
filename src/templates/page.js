@@ -1,26 +1,27 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-class Page extends Component {
-    render() {
-        const StaticPage = this.props.data.wordpressPage
 
-        return (
-            <>
-                <h1>{StaticPage.title}</h1>
-                <div>{StaticPage.content}</div>
-            </>
-        )
-    }
-}
+// class Page extends Component {
+//     render() {
+//         const StaticPage = this.props.data.wordpressPage
 
-export default Page
+//         return (
+//             <>
+//                 <h1>{StaticPage.title}</h1>
+//                 <div>{StaticPage.content}</div>
+//             </>
+//         )
+//     }
+// }
 
-export const pageQuery = graphql`
-    query($id: String!) {
-        wordpressPage(id: { eq: $id }) {
-            title
-            content
-        }
-    }
-`
+// export default Page
+
+// export const pageQuery = graphql`
+//     query($id: String!) {
+//         wordpressPage(id: { eq: $id }) {
+//             title
+//             content
+//         }
+//     }
+// `

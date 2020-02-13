@@ -1,59 +1,53 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import cnLogo from '../images/OgLogoTrans-cropped.png'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-const HeaderWrapper = styled.div`
-    background: white;
-    marginBottom: 1.45rem;
-    img {
-        margin-bottom: 0;
-    }
-`
-const HeaderContainer = styled.div `
-    margin: 0 auto;
-    maxWidth: 960px;
-    padding: 0.5rem;
-`
+import Header from './header'
+import Archive from './archive'
+import './layout.css'
 
-const Header = ({ siteTitle }) => (
-    <HeaderWrapper>
-        <HeaderContainer>
-            <h1 style={{ margin: 0 }}>
-                <Link
-                    to="/"
-                    style={{
-                        color: 'white',
-                        textDecoration: 'none',
-                    }}
-                >
-                <img
-                    style={{
-                    width: '250px',
-                    padding: '1rem'
-                    }}
-                    src={ cnLogo }
-                    alt='Clark Newell Logo' />    
-                </Link>
-            </h1>
-        </HeaderContainer>
-    </HeaderWrapper>
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: data.site.siteMetadata.description },
+            { name: 'keywords', content: data.site.siteMetadata.keywords },
+          ]}
+        >
+          <html lang="en" />
+        </Helmet>
+        <Header />
+        <div
+          style={{
+            margin: '0 auto',
+            maxWidth: 960,
+            padding: '0px 1.0875rem 1.45rem',
+            paddingTop: 0,
+          }}
+        >
+          {children}
+        </div>
+        <Archive />
+      </>
+    )}
+  />
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
-Header.defaultProps = {
-  siteTitle: '',
-}
-
-export default Header
+export default Layout

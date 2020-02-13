@@ -2,8 +2,9 @@ require('dotenv').config()
 
 module.exports = {
     siteMetadata: {
-        title: `Clark Newell Website`,
+        title: `Clark Newell Blogsite`,
         description: `Blog and portfolio website for Clark Newell`,
+        keywords: `Software Web Development Gatsby React Blog Fitness`,
         author: `@gatsbyjs and Clark Newell`,
         siteUrl: 'https://clarknewell.netlify.com'
     },
@@ -46,8 +47,8 @@ module.exports = {
             icon: `src/images/MtnLogo.png`, // This path is relative to the root of the site.
         },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // this (optional) plugin enables Progressive Web App + Offline functionality with a ServiceWorker
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     ],
 }
