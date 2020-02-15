@@ -1,8 +1,38 @@
-const path = require(`path`)
-const slash = require(`slash`)
+const path = require('path')
 
+// const slash = require(`slash`)
 //^^ Review what slash is for, do I need it?
 
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions
+    return new Promise((resolve, reject) => {
+
+        graphql(`
+        {
+            allWordpressPage {
+                edges {
+                    node {
+                        id
+                        slug
+                        title
+                    }
+                }
+            }
+        }`).then(result => {
+            if(result.errors) {
+                console.log(result.errors)
+                reject(result.errors)
+            }
+            result.data.allWordpressPage.edges.forEach(({ node }) => {
+                createPage({
+                    path: node.slug,
+                    component: path.resolve('./src/templates/page.js')
+                })
+            })
+            resolve()
+        })
+    })
+}
 
 
 // exports.createPages = async ({ graphql, actions }) => {

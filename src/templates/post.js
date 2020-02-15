@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { graphql } from "gatsby"
-import PropTypes from "prop-types"
+import React, { Component } from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 
 
 
