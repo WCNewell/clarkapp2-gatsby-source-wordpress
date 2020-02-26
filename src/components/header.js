@@ -12,7 +12,7 @@ const HeaderWrapper = styled.div`
         margin-bottom: 0;
     }
 `
-const HeaderContainer = styled.div `
+const HeaderContainer = styled.div`
     margin: 0 auto;
     maxWidth: 960px;
     padding: 0.5rem;
