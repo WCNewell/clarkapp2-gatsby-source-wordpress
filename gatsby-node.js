@@ -1,5 +1,7 @@
 const path = require('path')
 
+// const queryAll = require('./src/queries/queryAll')
+
 // const slash = require(`slash`)
 //^^ Review what slash is for, do I need it?
 
