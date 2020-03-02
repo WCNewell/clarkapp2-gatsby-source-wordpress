@@ -8,6 +8,10 @@ export default class Post extends Component {
         return (
             <div>
                 <h1>{data.wordpressPost.title}</h1>
+                <img className="post-featured-photo"
+                    src={data.wordpressPost.fimg_url}
+                    alt="" />
+                <small className="featured-photo-description">Photo description</small>
                 <div
                     dangerouslySetInnerHTML={{
                         __html: data.wordpressPost.content
@@ -23,6 +27,7 @@ export const postQuery = graphql`
         wordpressPost(slug: { eq: $slug }) {
             title
             slug
+            fimg_url
             content
         }
     }
