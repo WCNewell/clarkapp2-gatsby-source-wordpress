@@ -4,19 +4,21 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const RECENT_POSTS_QUERY = graphql`
     query RecentPostsQuery {
-        allWordpressPost(filter: {status: {eq: "publish"}}, limit: 5) {
-            edges {
-                node {
-                    id
-                    slug
-                    date
-                    title
-                    jetpack_featured_media_url
-                    excerpt
-                }
-            }
-        }
+  allWordpressPost(filter: {status: {eq: "publish"}}, limit: 20, sort: {fields: [date], order: DESC}) {
+    edges {
+      node {
+        id
+        slug
+        date
+        title
+        jetpack_featured_media_url
+        featured_image_alt
+        excerpt
+      }
     }
+  }
+}
+
 `
 
 const RecentPosts = () => (
@@ -32,7 +34,7 @@ const RecentPosts = () => (
                             <div className="recent-posts-card" key={edge.node.id}>
                                 <small className="post-date">{ new Date(edge.node.date).toDateString() }</small>
                                 <Link to={`/posts/${edge.node.slug}`} className="post-title">{edge.node.title}</Link>
-                                <img className="post-thumbnail" src={edge.node.jetpack_featured_media_url} />
+                                <img className="post-thumbnail" src={edge.node.jetpack_featured_media_url} alt={edge.node.featured_image_alt} />
                                 <div dangerouslySetInnerHTML={{ __html: edge.node.excerpt }} />
                             </div>
 

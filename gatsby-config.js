@@ -2,8 +2,8 @@ require('dotenv').config()
 
 module.exports = {
     siteMetadata: {
-        title: `Clark Newell Blogsite`,
-        description: `Blog and portfolio website for Clark Newell`,
+        title: `Clark Newell`,
+        description: `Clark Newell Portfolio and Blog Website`,
         keywords: `Software Web Development Gatsby React Blog Fitness`,
         author: `@gatsbyjs and Clark Newell`,
         siteUrl: 'https://clarknewell.netlify.com'
@@ -16,7 +16,7 @@ module.exports = {
                 baseUrl: `clarknewell.tech`,
                 protocol: `https`,
                 hostingWPCOM: true,
-                useACF: false,
+                useACF: true,
                     auth: {
                     wpcom_app_clientSecret: process.env.WP_SECRET,
                     wpcom_app_clientId: process.env.WP_CLIENTID,
