@@ -1,53 +1,27 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-;
-import cnLogo from '../images/OgLogoTrans-cropped.png'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import './styles.css'
 
-const HeaderWrapper = styled.div`
-    background: white;
-    marginBottom: 1.45rem;
-    img {
-        margin-bottom: 0;
-    }
-`
-const HeaderContainer = styled.div`
-    margin: 0 auto;
-    maxWidth: 960px;
-    padding: 0.5rem;
-`
-
-const Header = ({ siteTitle }) => (
-    <HeaderWrapper>
-        <HeaderContainer>
-            <h1 style={{ margin: 0 }}>
-                <Link
-                    to="/"
-                    style={{
-                    color: 'white',
-                    textDecoration: 'none',
-                    }}
-                >
-                <img
-                    style={{
-                    width: '250px',
-                    padding: '1rem'
-                    }}
-                    src={ cnLogo }
-                    alt='Clark Newell Logo' />
-                </Link>
-            </h1>
-        </HeaderContainer>
-    </HeaderWrapper>
+const Header = () => (
+    
+    <div class='logo'>
+        <Link to='/'>
+            <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
+        </Link>
+    </div>
 )
 
-Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-    siteTitle: '',
-}
-
+export const query = graphql`
+    query {
+        file(relativePath: { eq: "images/OgLogoTrans-copped.png" }) {
+            childImageSharp {
+                fixed(width: 125, height: 125) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+    }
+`
 export default Header 
