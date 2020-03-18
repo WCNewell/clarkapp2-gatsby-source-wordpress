@@ -1,27 +1,36 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import './styles.css'
 
-const Header = () => (
-    
-    <div class='logo'>
-        <Link to='/'>
-            <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
-        </Link>
-    </div>
-)
-
-export const query = graphql`
-    query {
-        file(relativePath: { eq: "images/OgLogoTrans-copped.png" }) {
-            childImageSharp {
-                fixed(width: 125, height: 125) {
-                    ...GatsbyImageSharpFixed
+const Header = ({ children }) => (
+    <StaticQuery
+        query={graphql`
+            query logoQuery {
+                file(relativePath: { regex: "/OgLogoTrans-cropped.png/" }) {
+                    childImageSharp {
+                        fixed (width: 200) {
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
                 }
             }
-        }
-    }
-`
+        `}
+        render={data => (
+                <div class='logo'>
+                    <Link to='/'>
+                        <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
+                    </Link>
+                    
+                </div>
+        )}
+    />    
+)
+
+Header.propTypes = {
+    children: PropTypes.node.isRequired
+}
+
 export default Header 
