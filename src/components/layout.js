@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import RecentPosts from './recent-posts'
+import Footer from './footer'
 import './layout.css'
 
 const Layout = ({ children }) => {
@@ -32,10 +33,10 @@ const Layout = ({ children }) => {
             </Helmet>
             <Header />
             <RecentPosts />
+            <Footer />
         </div>
     )
 }
 
 export default Layout
-
 
