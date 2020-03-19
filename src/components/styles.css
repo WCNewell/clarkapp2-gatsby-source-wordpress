@@ -12,7 +12,14 @@
     padding: 1rem;
 }
 
+.mail-social-icon{
+    padding: 5px;
+    width: 47px;
+    height: 47px;
+}
+
 .social-icon {
+    padding: 5px;
     width: 50px;
     height: 50px;
 }
