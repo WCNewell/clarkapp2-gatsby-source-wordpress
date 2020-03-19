@@ -1,8 +1,5 @@
 const path = require('path')
 
-// const slash = require(`slash`)
-//^^ Review what slash is for, do I need it?
-
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
     return new Promise((resolve, reject) => {
