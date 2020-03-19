@@ -33,6 +33,5 @@ export const postQuery = graphql`
 `
           
 Post.propTypes = {
-    data: PropTypes.object.isRequired,
-    edges: PropTypes.array,
+    data: PropTypes.object.isRequired
 }

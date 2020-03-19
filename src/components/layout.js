@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -7,7 +6,7 @@ import Header from './header'
 import RecentPosts from './recent-posts'
 import './layout.css'
 
-export default ({ children }) => {
+const Layout = ({ children }) => {
     const data = useStaticQuery(graphql`
         query SiteMetaQuery {
             site {
@@ -21,7 +20,7 @@ export default ({ children }) => {
     `)
 
     return (
-        <layout>
+        <div>
             <Helmet
                 title={data.site.siteMetadata.title}
                 meta={[
@@ -33,6 +32,10 @@ export default ({ children }) => {
             </Helmet>
             <Header />
             <RecentPosts />
-        </layout>
+        </div>
     )
 }
+
+export default Layout
+
+
