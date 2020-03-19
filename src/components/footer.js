@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 
+import MailIcon from '../images/iconfinder_mail_287692.png'
 import LinkedInIcon from '../images/iconfinder_linkedin_circle_black_107159.png'
 import GitHubIcon from '../images/iconfinder_github_circle_black_107161.png'
 import TwitterIcon from '../images/iconfinder_twitter_circle_black_107155.png'
@@ -10,6 +11,9 @@ const Footer = () => {
 
     return (
         <div>
+            <a href='mailto: clark@clarknewell.tech'>
+                <img className="mail-social-icon" src={MailIcon} alt="email icon" />
+            </a>
             <a href="https://linkedin.com/in/william-clark-newell/">
                 <img className="social-icon" src={LinkedInIcon} alt="linkedin icon" />
             </a>
