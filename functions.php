@@ -1,6 +1,6 @@
 <?php
 
-// Documenting ode from functions.php in WordPress child theme:
+// Documenting code from functions.php in WordPress child theme:
 // Currently working function for child theme styles
 
 function my_theme_enqueue_styles() {

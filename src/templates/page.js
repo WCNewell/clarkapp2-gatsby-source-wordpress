@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Page extends Component {
     render() {
@@ -26,31 +27,6 @@ export const pageQuery = graphql`
     }
 `
 
-// class Post extends Component {
-//     render() {
-//         const post = this.props.data.wordpressPost
-
-//         return (
-//             <>
-//                 <h1>{post.title}</h1>
-//                 <div>{post.content}</div>
-//             </>
-//         )
-//     }
-// }
-
-// Post.propTypes = {
-//     data: PropTypes.object.isRequired,
-//     edges: PropTypes.array,
-// }
-
-// export default Post
-
-// export const postQuery = graphql`
-//     query($id: String!) {
-//         wordpressPost(id: { eq: $id }) {
-//             title
-//             content
-//         }
-//     }
-// `
+Page.propTypes = {
+    data: PropTypes.object.isRequired
+}

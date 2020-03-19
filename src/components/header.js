@@ -1,53 +1,35 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-;
-import cnLogo from '../images/OgLogoTrans-cropped.png'
+import { Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import './styles.css'
 
-const HeaderWrapper = styled.div`
-    background: white;
-    marginBottom: 1.45rem;
-    img {
-        margin-bottom: 0;
-    }
-`
-const HeaderContainer = styled.div`
-    margin: 0 auto;
-    maxWidth: 960px;
-    padding: 0.5rem;
-`
+export default () => {
+    const data = useStaticQuery(graphql`
+        query SiteHeaderQuery {
+            site {
+                siteMetadata {
+                        description
+                    }
+            }
+            file(relativePath: { regex: "/OgLogoTrans-cropped.png/" }) {
+                childImageSharp {
+                    fixed (width: 200) {
+                        ...GatsbyImageSharpFixed
+                    }
+                }
+            }
+        }
+    `)
 
-const Header = ({ siteTitle }) => (
-    <HeaderWrapper>
-        <HeaderContainer>
-            <h1 style={{ margin: 0 }}>
-                <Link
-                    to="/"
-                    style={{
-                    color: 'white',
-                    textDecoration: 'none',
-                    }}
-                >
-                <img
-                    style={{
-                    width: '250px',
-                    padding: '1rem'
-                    }}
-                    src={ cnLogo }
-                    alt='Clark Newell Logo' />
+    return (
+        <header>
+            <div className='logo'>
+                <Link to='/'>
+                    <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
                 </Link>
-            </h1>
-        </HeaderContainer>
-    </HeaderWrapper>
-)
-
-Header.propTypes = {
-    siteTitle: PropTypes.string,
+                <h2 className='site-description'>{data.site.siteMetadata.description}</h2>
+            </div>
+        </header>
+    )
 }
-
-Header.defaultProps = {
-    siteTitle: '',
-}
-
-export default Header 

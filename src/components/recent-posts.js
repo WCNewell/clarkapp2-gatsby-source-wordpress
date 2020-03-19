@@ -4,20 +4,20 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const RECENT_POSTS_QUERY = graphql`
     query RecentPostsQuery {
-  allWordpressPost(filter: {status: {eq: "publish"}}, limit: 20, sort: {fields: [date], order: DESC}) {
-    edges {
-      node {
-        id
-        slug
-        date
-        title
-        jetpack_featured_media_url
-        featured_image_alt
-        excerpt
-      }
+        allWordpressPost(filter: {status: {eq: "publish"}}, limit: 20, sort: {fields: [date], order: DESC}) {
+            edges {
+                node {
+                    id
+                    slug
+                    date
+                    title
+                    jetpack_featured_media_url
+                    featured_image_alt
+                    excerpt
+                }
+            }
+        }
     }
-  }
-}
 
 `
 
