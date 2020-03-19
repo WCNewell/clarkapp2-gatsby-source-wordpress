@@ -29,6 +29,9 @@ export default () => {
                     <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
                 </Link>
                 <h2 className='site-description'>{data.site.siteMetadata.description}</h2>
+                <Link className='menu-link' to='/about'>About</Link>
+                <Link className='menu-link' to='/'>Portfolio</Link>
+                <Link className='menu-link' to='/'>Blog</Link>
             </div>
         </header>
     )
