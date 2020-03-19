@@ -7,7 +7,7 @@ import Header from './header'
 import RecentPosts from './recent-posts'
 import './layout.css'
 
-const Layout = ({ children }) => {
+export default ({ children }) => {
     const data = useStaticQuery(graphql`
         query SiteMetaQuery {
             site {
@@ -21,24 +21,18 @@ const Layout = ({ children }) => {
     `)
 
     return (
-        <div>
-        <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-                { name: 'description', content: data.site.siteMetadata.description },
-                { name: 'keywords', content: data.site.siteMetadata.keywords },
-            ]}
-        >
-        <html lang="en" />
-        </Helmet>
-        <Header />
-        <RecentPosts />
-        </div>
+        <layout>
+            <Helmet
+                title={data.site.siteMetadata.title}
+                meta={[
+                    { name: 'description', content: data.site.siteMetadata.description },
+                    { name: 'keywords', content: data.site.siteMetadata.keywords },
+                ]}
+            >
+            <html lang="en" />
+            </Helmet>
+            <Header />
+            <RecentPosts />
+        </layout>
     )
 }
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired
-}
-
-export default Layout
