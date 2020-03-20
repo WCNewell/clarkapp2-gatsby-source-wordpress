@@ -14,7 +14,7 @@ export default () => {
             }
             file(relativePath: { regex: "/OgLogoTrans-cropped.png/" }) {
                 childImageSharp {
-                    fixed (width: 200) {
+                    fixed (width: 175) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -23,17 +23,19 @@ export default () => {
     `)
 
     return (
-        <header>
+        <header className='header'>
             <div className='logo'>
                 <Link to='/'>
                     <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
                 </Link>
             </div>
-            <h2 className='site-description'>{data.site.siteMetadata.description}</h2>
+            <h4 className='site-description'>{data.site.siteMetadata.description}</h4>
             <nav>
                 <Link className='menu-link' to='/about'>About</Link>
                 <Link className='menu-link' to='/'>Portfolio</Link>
                 <Link className='menu-link' to='/'>Blog</Link>
+                <Link className='menu-link' to='/'>Contact</Link>
+
             </nav>
         </header>
     )
