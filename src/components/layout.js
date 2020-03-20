@@ -4,7 +4,8 @@ import SEO from './seo'
 import Header from './header'
 import RecentPosts from './recent-posts'
 import Footer from './footer'
-import './layout.css'
+import '../styles/customStyles.css'
+import '../styles/layout.css'
 
 const Layout = ({ children }) => {
     

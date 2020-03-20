@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import '../styles/customStyles.css'
 
 import MailIcon from '../images/iconfinder_mail_287692.png'
 import LinkedInIcon from '../images/iconfinder_linkedin_circle_black_107159.png'
