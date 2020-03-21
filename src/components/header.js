@@ -2,7 +2,19 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import '../styles/customStyles.css'
+import styled from 'styled-components'
+
+const Header = styled.div`
+    display: flex;
+`
+
+const Logo = styled.div`
+    padding: 1rem;
+`
+
+const Slogan = styled.div`
+    padding: 5rem;
+`
 
 export default () => {
     const data = useStaticQuery(graphql`
@@ -23,20 +35,13 @@ export default () => {
     `)
 
     return (
-        <header className='header'>
-            <div className='logo'>
+        <Header>
+            <Logo>
                 <Link to='/'>
                     <Img fixed={data.file.childImageSharp.fixed} alt='Clark Newell Logo' />
                 </Link>
-            </div>
-            <h4 className='site-description'>{data.site.siteMetadata.description}</h4>
-            <nav>
-                <Link className='menu-link' to='/about'>About</Link>
-                <Link className='menu-link' to='/'>Portfolio</Link>
-                <Link className='menu-link' to='/'>Blog</Link>
-                <Link className='menu-link' to='/'>Contact</Link>
-
-            </nav>
-        </header>
+            </Logo>
+            <Slogan>{data.site.siteMetadata.description}</Slogan>
+        </Header>
     )
 }
