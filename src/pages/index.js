@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
+import App from '../components/app'
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-    <Layout>
+    <App>
         <SEO title="Home" />
-    </Layout>
+    </App>
 )
 
 export default IndexPage
