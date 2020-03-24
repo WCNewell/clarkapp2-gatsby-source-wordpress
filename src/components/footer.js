@@ -44,9 +44,8 @@ const Footer = () => {
             <a href="https://instagram.com/willcnewell/">
                 <img className="social-icon" src={InstagramIcon} alt="instagram icon" />
             </a>
-            © {new Date().getFullYear()} Clark Newell, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            © {new Date().getFullYear()} Clark Newell, built with {` `}
+            <a href="https://www.gatsbyjs.org"> Gatsby </a>
         </Socials>
           
     )

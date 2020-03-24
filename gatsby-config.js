@@ -3,7 +3,7 @@ require('dotenv').config()
 module.exports = {
     siteMetadata: {
         title: `Clark Newell`,
-        description: `Software Development and Fitness Journey`,
+        description: `software development and fitness journey`,
         keywords: `Software Web Development Gatsby React Blog Headless WordPress Fitness`,
         author: `@gatsbyjs and @WCNewell`,
         siteUrl: 'https://clarknewell.netlify.com'
