@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby'
-import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 
 
