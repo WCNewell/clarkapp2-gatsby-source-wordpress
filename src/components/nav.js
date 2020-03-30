@@ -6,58 +6,38 @@ import styled from 'styled-components'
 
 export default () => {
 
-  const [menuState, setMenuOpen] = useState({menuOpen: false});
+    const [menuState, setMenuOpen] = useState({menuOpen: false});
 
-  const closeMenu = () => {
+    const closeMenu = () => {
     setMenuOpen({menuOpen: false})
-  }
+    }
 
-  return (
-    <>
-        <TopNav className="sticky-top">
-            
-            <NavItems>
-              <Link to="/" >Home</Link>
-              <Link to="/articles" >Articles</Link>
-              <a href="#">About</a>
-              <a href="#">Products</a>
-            </NavItems>
-
-
-
+    return (
+        <>
+        <TopNav>    
             <SideMenu>
-              <Menu isOpen={ menuState.menuOpen }>
+                <Menu isOpen={ menuState.menuOpen }>
 
-                <Link className="menu-item" to="/" onClick={() => closeMenu() }>
-                  Home
-                </Link>
-                
-                <Link className="menu-item" to="/articles" onClick={() => closeMenu() }>
-                  Articles
-                </Link>
+                    <Link className="menu-item" to="/" onClick={() => closeMenu() }>
+                        Home
+                    </Link>
+                    
+                    <Link className="menu-item" to="/about" onClick={() => closeMenu() }>
+                        About
+                    </Link>
 
-                <Link className="menu-item" to="/centered-div" onClick={() => closeMenu() }>
-                  Centered Div
-                </Link>
+                    <Link className="menu-item" to="/portfolio" onClick={() => closeMenu() }>
+                        Portfolio
+                    </Link>
 
-                <Link className="menu-item" to="/form-sample" onClick={() => closeMenu() }>
-                  Form Sample
-                </Link>
+                    <Link className="menu-item" to="/contact" onClick={() => closeMenu() }>
+                        Contact
+                    </Link>
 
-                <Link className="menu-item" to="/reactstrap-form" onClick={() => closeMenu() }>
-                  Reactstrap Form
-                </Link>
-
-                <Link className="menu-item" to="/react-final-form" onClick={() => closeMenu() }>
-                  React Final Form
-                </Link>
-
-              </Menu>
+                </Menu>
             </SideMenu>
-
-        </TopNav>
-    </>
-
+        </TopNav>    
+        </>
 )}
 
 const TopNav = styled.div`
@@ -74,6 +54,7 @@ const TopNav = styled.div`
   top: 0;
   width: 100vw;
 `
+
 const Logo = styled.div`
   padding: 1em 1em 0 1em;
 `
