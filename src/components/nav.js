@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby'
+import { Link } from "gatsby"
 import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 
@@ -18,9 +18,12 @@ export default () => {
             
             <NavItems>
               <Link to="/" >Home</Link>
-              <Link to="/about" >About</Link>
-              <Link to="/portfolio" >Portfolio</Link>
+              <Link to="/articles" >Articles</Link>
+              <a href="#">About</a>
+              <a href="#">Products</a>
             </NavItems>
+
+
 
             <SideMenu>
               <Menu isOpen={ menuState.menuOpen }>
