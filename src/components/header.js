@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Nav from './nav'
 
 const Header = styled.div`
     display: flex;
@@ -43,7 +42,6 @@ export default () => {
                 </Link>
             </Logo>
             <Slogan>{data.site.siteMetadata.description}</Slogan>
-            <Nav />
         </Header>
     )
 }
